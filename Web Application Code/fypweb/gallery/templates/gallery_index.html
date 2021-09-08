@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<style>
+body{
+    color: #B5838D;
+}
+.btn, .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    font-size: 30px;
+    width: 300px;
+}
+
+@media (max-width: 1200px) {
+    .btn, .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+        font-size: 25px;
+        width: 200px;
+    }
+}
+@media (max-width: 991px) {
+    .btn, .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+        font-size: 15px;
+        width: 140px;
+    }
+}
+@media (max-width: 768 px) {
+    .btn, .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+        font-size: 30px;
+        width: 300px;
+    }
+
+}
+</style>
+<div class="container">
+<div class="col-md-12 m-4 p-4 text-center"> 
+    <h1 style="font-size:60px;">Gallery of Characters</h1>
+</div>
+<div class="row mt-3">
+{% for sample in samples %}
+    <div class="col-md-4 sm-5">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static sample.image %}">
+            <div class="card-block text-center">
+                <h5 class="card-title">{{ sample.title }}</h5>
+            </div>
+            <div class="card-block text-center">
+                <a href= "{%url 'sample_detail' sample.pk %}" class ="btn btn-primary">Pick me!</a>
+            </div> 
+        </div>
+    </div>
+{% endfor %}
+</div>
+</div>
+{% endblock  %}

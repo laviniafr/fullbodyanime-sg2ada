@@ -1,0 +1,34 @@
+.navbar-custom {
+    background-color: rgba(185, 105, 120, 0.644);
+    /* background-image: linear-gradient(to right,#E5989B ,#FFCDB2); */
+    margin-top: -8px;
+    height: 60px;
+    font-family: 'VT323', monospace;
+    
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #ffffff;
+    padding-left: 20px; 
+    padding-top: 6px;
+    padding-bottom: 0px;
+    font-size: 50px;
+    
+    
+}
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff;
+    font-size: 30px;
+    padding-top: 14px;
+    
+}
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+body {
+    font-family: 'VT323', monospace;
+}

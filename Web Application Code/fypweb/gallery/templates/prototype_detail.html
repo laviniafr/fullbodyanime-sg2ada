@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<script>
+    function save_img(image) {
+        var canvas = document.createElement('canvas');
+        window.open(canvas.toDataURL(image));
+        var gh = canvas.toDataURL('png');
+        var a = document.createElement('a');
+        a.href = gh;
+        a.download = 'image.png';
+        a.click()
+    }
+</script>
+<style>
+    body,
+    html {
+        height: 100%;
+        background: linear-gradient(90deg, #FFFFFF 50%, #F8D8DC 50%);
+    }
+
+    @media (max-width: 767px) {
+
+        body,
+        html {
+            background: #ffffff;
+        }
+
+        .leftside {
+            height: 90%;
+        }
+
+        .rightside {
+            align-items: center;
+            
+        }
+    }
+
+    @media (max-width: 991px) {
+
+        .btn,
+        .btn-primary,
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary:visited {
+            font-size: 30px;
+            width: 260px;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .leftside {
+            height: 60%;
+        }
+
+        body,
+        html {
+            background: #ffffff;
+        }
+    }
+</style>
+
+
+<body>
+
+    <div class="row w-100">
+
+        <div class="col-md-5 col-sm-12 pb-md-5 mx-auto">
+
+            <div class="leftside">
+                <h1 style="color:#B5838D">{{ prototype.title }}</h1>
+                <img class="leftside" src="{% static prototype.image %}">
+                <h2 style="color:#B5838D">{{prototype.description}}.</h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 col-sm-12 ml-auto pb-5 mx-auto mt-5">
+            <div class="rightside">
+                <div class="col-md-12 pb-5" align="center">
+                    <a href="{% url 'generate' random_num %}" class="btn btn-primary btn-block"> Generate Again!</a>
+                </div>
+                <div class="col-md-12 pb-5 " align="center">
+                    <button class="btn btn-primary " onclick="save_img('{% static prototype.image %}')"> Save
+                        me!</button>
+                </div>
+                <div class="col-md-12 pb-5" align="center">
+
+                    <form action="{% url 'add_sample'  %}" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="hidden" name="new_sample" value="{{prototype.pk}}">
+                        <input type="submit"  class="submit_btn btn label-success btn-primary" value="Add to Gallery" >
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+{% endblock  %}

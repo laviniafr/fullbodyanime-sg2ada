@@ -1,0 +1,41 @@
+.leftside, .rightside {
+  height: 100vh;
+  width: 100%;
+}
+
+.rightside {
+  align-items: center;
+
+}
+.leftside {
+  text-align: center;
+}
+
+.leftside img {
+      width: 100%;
+      height: auto;
+      margin: auto;
+      max-width: 600px;    
+      display: block;
+}
+
+.btn, .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #ffffff;
+  padding: 8px 20px;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:5px;
+  cursor:pointer;
+  font-size: 40px;
+  border-color: #B5838D;
+  border-width: 2px;
+  border-radius: 30px 30px 30px 30px;
+  width: 360px;
+  color: #B5838D;
+  margin-bottom: 30px;
+}
+.my_auto{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
